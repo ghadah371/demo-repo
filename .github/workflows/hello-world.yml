@@ -1,14 +1,14 @@
-name: Hello World Workflow
+name: Secure Workflow
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
-  say-hello:
+  example-job:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Print Hello World
-      run: echo "Hello World!"
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Use Secret
+        run: echo "Your API Key is ${{ secrets.API_KEY }}"
